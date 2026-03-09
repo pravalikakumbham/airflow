@@ -88,8 +88,8 @@ def check_dataflow_status(run_id, bearer_token):
 
 
 def trigger_pipeline(bearer_token, pipeline_id):
-
-    url = f"{server_url}/piper/jobs"
+    
+    url = f"{server_url}/piper/api/v2/pipeline/run"
 
     headers = {
         "Authorization": bearer_token,
