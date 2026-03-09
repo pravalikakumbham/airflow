@@ -49,7 +49,7 @@ def get_dag_final_status(dag_id, dag_run_id):
                     print("DAG Run Details:", data)
                     return data
                 else:
-                    time.sleep(10)
+                    time.sleep(3600)
             else:
                 print(f"Failed to fetch DAG status. Status Code: {response.status_code}")
                 print("Response:", response.text)
