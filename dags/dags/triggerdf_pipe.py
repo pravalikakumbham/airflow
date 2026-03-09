@@ -89,7 +89,7 @@ def check_dataflow_status(run_id, bearer_token):
 
 def trigger_pipeline(bearer_token, pipeline_id):
     
-    url = f"{server_url}/piper/api/v2/pipeline/run"
+    url = f"{server_url}/piper/jobs"
 
     headers = {
         "Authorization": bearer_token,
@@ -148,7 +148,7 @@ def run_dataflow_and_pipeline():
 
     if df_status in ["COMPLETED", "SUCCESS"]:
 
-        pipeline_id = "03ad0c67-9522-4032-ba47-bbfd7f01c989"
+        pipeline_id = "54d6c967-c270-493f-8275-6f90679ac899"
 
         pl_run_id = trigger_pipeline(bearer_token, pipeline_id)
 
