@@ -16,7 +16,7 @@ password = "U2FsdGVkX19g32ZMdE/R4jUMxuDr9ZQw4csnXy14xTA="
 default_args={
         "retries": 0,
         "depends_on_past": False,
-         start_date:timezone.datetime(2026, 3, 10),
+         "start_date":timezone.datetime(2026, 3, 10),
     }
 def authenticate():
     auth_url = f"{server_url}/dataopssecurity/oauth2/token"
