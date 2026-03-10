@@ -106,7 +106,7 @@ def check_existing_run(dag_id):
 
     return False
 
-dag_id ="Airflow_Demo_DG_Trigger_123"
+dag_id ="Airflow_Demo_DG_Trigger"
 
 set_dag_toggle(dag_id, pause=False)
 
