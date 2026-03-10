@@ -46,44 +46,44 @@ def authenticate():
     return f"Bearer {token}"
 
 
-def trigger_dataflow(bearer_token, dataflow_id):
+# def trigger_dataflow(bearer_token, dataflow_id):
 
-    url = f"{server_url}/DataFlowService/api/v1.0/dataFlows/executeDataFlow?dataflowId={dataflow_id}"
+#     url = f"{server_url}/DataFlowService/api/v1.0/dataFlows/executeDataFlow?dataflowId={dataflow_id}"
 
-    headers = {
-        "Authorization": bearer_token,
-        "Content-Type": "application/json"
-    }
+#     headers = {
+#         "Authorization": bearer_token,
+#         "Content-Type": "application/json"
+#     }
 
-    response = requests.post(url, headers=headers)
-    response.raise_for_status()
+#     response = requests.post(url, headers=headers)
+#     response.raise_for_status()
 
-    run_id = response.json().get("dataFlowRunId")
+#     run_id = response.json().get("dataFlowRunId")
 
-    print(f"Triggered DataFlow. Run ID: {run_id}")
+#     print(f"Triggered DataFlow. Run ID: {run_id}")
 
-    return run_id
+#     return run_id
 
 
 
-def check_dataflow_status(run_id, bearer_token):
+# def check_dataflow_status(run_id, bearer_token):
 
-    url = f"{server_url}/DataFlowService/api/v1.0/dataFlows/dataflow-status?dataFlowRunId={run_id}"
+#     url = f"{server_url}/DataFlowService/api/v1.0/dataFlows/dataflow-status?dataFlowRunId={run_id}"
 
-    headers = {"Authorization": bearer_token}
+#     headers = {"Authorization": bearer_token}
 
-    while True:
-        response = requests.get(url, headers=headers)
-        response.raise_for_status()
+#     while True:
+#         response = requests.get(url, headers=headers)
+#         response.raise_for_status()
 
-        status = response.json().get("status", "").upper()
+#         status = response.json().get("status", "").upper()
 
-        print(f"DataFlow Status: {status}")
+#         print(f"DataFlow Status: {status}")
 
-        if status in ["COMPLETED", "FAILED", "ERROR", "SUCCESS"]:
-            return status
+#         if status in ["COMPLETED", "FAILED", "ERROR", "SUCCESS"]:
+#             return status
 
-        time.sleep(90)
+#         time.sleep(90)
 
 
 def trigger_pipeline(bearer_token, pipeline_id):
@@ -139,9 +139,9 @@ def run_dataflow_and_pipeline():
     bearer_token = authenticate()
 
     dataflow_id = "fa0cddb5-e168-4b7a-b370-2ada8d4243c7"
-    df_run_id = trigger_dataflow(bearer_token, dataflow_id)
+    # df_run_id = trigger_dataflow(bearer_token, dataflow_id)
 
-    df_status = check_dataflow_status(df_run_id, bearer_token)
+    #df_status = check_dataflow_status(df_run_id, bearer_token)
 
     print(f"Final DataFlow Status: {df_status}")
 
