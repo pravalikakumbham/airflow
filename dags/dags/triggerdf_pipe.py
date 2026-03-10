@@ -162,11 +162,12 @@ def run_dataflow_and_pipeline():
 
 
 with DAG(
-    dag_id="datagaps_trigger_dag",
+    dag_id="datagaps_trigger_dag_1",
     default_args=default_args,
+    max_active_runs=1,
     schedule=None,
     catchup=False,
-    tags=["datagaps", "dataflow", "pipeline"],
+    tags=["dataflow", "pipeline"],
 ) as dag:
 
     trigger_jobs = PythonOperator(
