@@ -163,7 +163,7 @@ def run_dataflow_and_pipeline():
 with DAG(
     dag_id="Airflow_Demo_DG_Trigger",
     default_args=default_args,
-    max_active_runs=1,
+    max_active_runs=0,
     schedule=None,
     catchup=False,
     tags=["dataflow", "pipeline"],
