@@ -135,28 +135,27 @@ def check_pipeline_status(run_id, bearer_token):
 
 
 def run_dataflow_and_pipeline():
+        bearer_token = authenticate()
 
-    bearer_token = authenticate()
-
-    dataflow_id = "fa0cddb5-e168-4b7a-b370-2ada8d4243c7"
+    # dataflow_id = "fa0cddb5-e168-4b7a-b370-2ada8d4243c7"
     # df_run_id = trigger_dataflow(bearer_token, dataflow_id)
 
     #df_status = check_dataflow_status(df_run_id, bearer_token)
 
-    print(f"Final DataFlow Status: {df_status}")
+    # print(f"Final DataFlow Status: {df_status}")
 
-    if df_status in ["COMPLETED", "SUCCESS"]:
+    # if df_status in ["COMPLETED", "SUCCESS"]:
 
         pipeline_id = "54d6c967-c270-493f-8275-6f90679ac899"
-
+        
         pl_run_id = trigger_pipeline(bearer_token, pipeline_id)
-
+        
         pl_status = check_pipeline_status(pl_run_id, bearer_token)
-
+        
         print(f"Final Pipeline Status: {pl_status}")
 
-    else:
-        print("Skipping pipeline execution since DataFlow failed.")
+    # else:
+    #     print("Skipping pipeline execution since DataFlow failed.")
 
 
 
