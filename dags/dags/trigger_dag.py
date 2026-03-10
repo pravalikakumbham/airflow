@@ -59,7 +59,7 @@ def get_dag_final_status(dag_id, dag_run_id):
         return None
 
 
-dag_id = "Airflow_Demo_DG Trigger"
+dag_id = "Airflow_Demo_DG_Trigger"
 dag_run_id = trigger_dag(dag_id)
 
 
